@@ -1,0 +1,5 @@
+let teperature
+if (teperature > 30)
+    console.log("It's hot outside!")
+else
+    console.log("the wether is nice")   
