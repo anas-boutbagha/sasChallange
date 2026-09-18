@@ -6,7 +6,7 @@ x=height*height;
 bmi=weight/x;
 if (bmi <18.5)
 {
-    console.log(bmi, "Underweight")
+    console.log(" " ,${bmi}, "Underweight")
 }
 else if (bmi >= 18.5 && bmi < 24.9)
 {

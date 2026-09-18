@@ -1,4 +1,4 @@
-let teperature
+let teperature=25
 if (teperature > 30)
     console.log("It's hot outside!")
 else

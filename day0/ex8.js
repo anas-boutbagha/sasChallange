@@ -1,6 +1,6 @@
-let ang_a
-let ang_b
-let ang_c
+let ang_a=90
+let ang_b=45
+let ang_c=45
 let som
 if(ang_a>0 && ang_b>0 && ang_c>0){
 som=ang_a+ang_b+ang_c
