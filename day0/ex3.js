@@ -1,4 +1,4 @@
-let number
+let number=27
 let x=number%2
 if(x=0)
         console.log("It's an even nbr!")
