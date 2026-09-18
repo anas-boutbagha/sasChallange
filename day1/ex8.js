@@ -1,8 +1,7 @@
 let b 
 for(let i = 0;i<5;i++) {
-    b = "* "
-    for( let j = 0;j<4;j++){
-       
+    b= "* "
+    for( let j = 0;j<i;j++){
         b= b + "* "
     
     }
