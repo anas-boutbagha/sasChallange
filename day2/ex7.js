@@ -5,8 +5,6 @@ let y = Number(q ("give me a second number "))
 function calculate(a, b, operation){
 
     return operation(a,b);
-
-
 }
 
 const addition = (a,b) => a + b 

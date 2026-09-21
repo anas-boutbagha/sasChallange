@@ -1,13 +1,21 @@
 const p = require("prompt-sync")()
 let l = Number(p ("give me the length of the array "))
+let Tf = []
 let t = [l-1]
 for(let i = 0;i < l; i++)
     {
 const p = require("prompt-sync")()
-t[i] = Number(p (`give me a number dans la case ${i} ` ))
+t[i] = Number(p (`give me the number in the case ${i} ` ))
 }
-console.log(t)
-function filterOddNumbers(arr, callback){
-    return(callback)
+function filterOddNumbers(a, callback){
+   return(callback(t))
+   }
+let verification = (t) => {
+for(j=0;j<l;j++){    
+    if ( t[j] %2==0 ){
+        Tf.push(t[j])
+}}
+console.log(Tf)
 }
-const callback = (t) => t%2==0
+
+filterOddNumbers(t, verification)
