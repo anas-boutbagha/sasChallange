@@ -1,0 +1,13 @@
+let sentence = "JavaScript requires logical thinking";
+let max = 0
+let indice = 0
+let mot = sentence.split(" ")
+console.log(mot);
+max = mot[0].length
+for (let i = 1; i< mot.length;i++ ){
+ if(max < mot[i].length){
+   max = mot[i].length
+   indice = i
+ }
+}
+ console.log(mot[indice])
