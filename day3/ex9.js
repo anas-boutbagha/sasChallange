@@ -11,7 +11,6 @@ if(l1==l2){
     for(let j = 0 ; j < l2 ; j++){
         let r1 = s1[i]
         let r2 = s2[j]
-
         if(r1==r2){
             cmt++
             break;
