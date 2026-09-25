@@ -80,6 +80,23 @@ function  Ajouter_plusieurs_candidats_à_la_fois(tab) {
 } while (option == 1);
         return(tab)
 }
+function tri_celon_char (tab ) { 
+    let aid 
+    for (let i = 0; i < tab.length; i++) {
+        for (let j= 0 ; j < tab.length; j++ ){
+            if (tab[i]?.partiPolitique > tab[j]?.partiPolitique)
+            {
+                aid = tab[i]
+                tab[i] = tab[j]
+                tab[j] = aid
+              }
+        
+        }
+        
+    }
+    return(tab)
+    
+}
 function tri (tab ) { 
     let aid 
     for (let i = 0; i < tab.length; i++) {
@@ -152,13 +169,26 @@ console.log("aucun candidat a ce nom ");
 return(tab)
 }
 function supresion_des_informations(tab , x){
-    let name_find = p("saisissez-vous le nom du candidat a changer: ")
 for(let i = 0; i < tab.length; i++){
-    if(name_find == tab[i]?.nom){
-        console.log(tab[i]);
+    if(x == tab[i]?.cin){
+        tab[i].splice(i , i+1);
     }
     
 }}
+function Afficher_le_nombre_de_candidats_par_parti_politique(tab , x){
+    let cnt = 0
+    let tablo = []
+for(let i = 0; i < tab.length; i++){
+    if(tab[i]?.partiPolitique == tab[i]?.partiPolitique){
+        cnt++
+
+    }
+    else if(tab[i]?.partiPolitique == tab[i]?.partiPolitique){
+        tablo.push({amount_of_candidats :cnt},{partiPolitique: tab[i]?.partiPolitique})
+    }
+    
+}}
+
 do {
     
     console.log("");
@@ -252,7 +282,8 @@ do {
                 console.clear()    
                 break;}
             case 6: {
-                supresion_des_informations(candidats , elementasup)
+                cin_a_suprimer = p("entez-vous le CIN du candidat a supprimer")
+                supresion_des_informations(candidats , cin_a_suprimer)
                 p("continu ....")
                 console.clear()    
                 break;}console
@@ -299,11 +330,13 @@ do {
                     }
                 }
                     case 4:
-                   { let partie = p("s'il vous plait choisissait vous un partie politique : ")
-                        political (candidats , partie )
+                    tri_celon_char (candidats )
+                    console.log(candidats)
+                   let partie = p("s'il vous plait choisissait vous un partie politique : ")
+                        Afficher_le_nombre_de_candidats_par_parti_politique(candidats , partie)
                         p("continu ....")
                     console.clear()
-                        break;}
+                        break;
 
                 }
                 }while(mini_option!=1||mini_option!=2||mini_option!=3||mini_option!=4)
