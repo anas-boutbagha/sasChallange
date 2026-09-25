@@ -1,0 +1,319 @@
+const p = require("prompt-sync")()
+
+let candidats = [
+    { cin : "AA123456",
+	nom : "Boushaba",
+	prenom : "Soufiane",
+	partiPolitique : "Independant",
+	age: 40,
+	electeurs: ["a","b","b","v","r"]
+    },
+    { cin : "AB123456",
+	nom : "boulama",
+	prenom : "Soufiane",
+	partiPolitique : "pam",
+	age: 40,
+	electeurs: ["s","d","e","e"]
+    },
+      { cin : "AC123456",
+	nom : "Bouhafa",
+	prenom : "Soufiane",
+	partiPolitique : "Indépendant",
+	age: 40,
+	electeurs: ["a","g","h","y","u","i","o"]
+    },
+        { cin : "AD123456",
+	nom : "Bokayo",
+	prenom : "Soufiane",
+	partiPolitique : "pam",
+	age: 40,
+	electeurs: [1,2]
+    }
+]
+let a = 0
+let b = 0
+
+function Ajouter_un_nouveau_candidat(tab){
+   let cinv = 0
+   let nomv = ""
+   let prenomv = ""
+   let partiPolitiquev = ""
+   let agev = 0
+   let electeursv = []
+   let vote_numv = tab.length
+    
+    cinv = p("s'il vous plait introduiser le CIN : ");
+    nomv = p("s'il vous plait intriduiser le nom : ")
+    prenomv = p("s'il vous plait intriduiser le prenom  : ");
+    partiPolitiquev = p("s'il vous plait intriduiser le partiPolitique : ");
+    agev = p("s'il vous plait intriduiser le age : ");
+    electeursv = p("s'il vous plait intriduiser le electeurs : ");
+
+    tab.push({cin: cinv,nom: nomv ,prenom: prenomv ,age: agev ,electeurs: electeursv ,vote_num: vote_numv, })
+        return(tab)
+
+}
+function  Ajouter_plusieurs_candidats_à_la_fois(tab) {
+    let electeuridv = 0
+    do {  
+   let option = 0
+   let cinv = 0
+   let nomv = ""
+   let prenomv = ""
+   let partiPolitiquev = ""
+   let agev = 0
+   let electeursv = []
+   let vote_numv = electeursv.length
+    
+    cinv = p("s'il vous plait introduiser le CIN : ");
+    nomv = p("s'il vous plait intriduiser le nom : ")
+    prenomv = p("s'il vous plait intriduiser le prenom  : ");
+    partiPolitiquev = p("s'il vous plait intriduiser le partiPolitique : ");
+    agev = p("s'il vous plait intriduiser le age : ");
+    electeursv = p("s'il vous plait intriduiser le electeurs : ");
+
+    option = p("pour continuer l'ajoute tapper 1 sinon tapez autre chose : ")
+   
+    tab.push({cin: cinv,nom: nomv ,prenom: prenomv ,age: agev ,electeurs: electeursv ,electeurid: electeuridv ,vote_num: vote_numv, })
+    electeuridv++
+
+} while (option == 1);
+        return(tab)
+}
+function tri (tab ) { 
+    let aid 
+    for (let i = 0; i < tab.length; i++) {
+        for (let j= 0 ; j < tab.length; j++ ){
+            if (tab[i]?.electeurs.length > tab[j]?.electeurs.length)
+            {
+                aid = tab[i]
+                tab[i] = tab[j]
+                tab[j] = aid
+              }
+        
+        }
+        
+    }
+    return(tab)
+    
+}
+function political (tab , x ) {  
+    for (let i = 0; i < tab.length; i++) {
+        console.log(tab[i]?.partiPolitique);
+        
+            if (tab[i]?.partiPolitique == x)
+            {
+                console.log(tab[i])
+              }
+        
+        }
+    return(tab)    
+    }
+function Afficher_la_liste_des_candidats (tab) {
+    
+}
+function Voter_pour_un_candidat__verification(cin , tab) {
+for(let i = 0 ; i< tab.length; i++){
+    for(let j = 0 ; j<tab[i]?.electeurs.length;j++){
+        let aid = tab[i]?.electeurs[j]
+    if(cin == aid){
+        console.log("!desole, vous avais deja electer !!");       
+    }
+    else if(cin != aid){
+        return(true)  
+    }
+    }
+}
+
+    
+}
+function Modifier_les_informations(tab){
+    let cin_donner = p("saisissez-vous le signe du candidat a changer: ")
+    let age_donner = p("saisissez-vous l'age du candidat a changer: ")
+    let name_donner = p("saisissez-vous le nom du candidat a changer: ")
+for(let i = 0; i < tab.length; i++){
+    if(cin_donner== tab[i]?.cin){
+        tab[i].nom = name_donner
+        tab[i].age = age_donner
+    }
+}
+return(tab)
+}
+function Rechercher_des_candidats(tab ){
+    let name_find = p("saisissez-vous le nom du candidat a changer: ")
+for(let i = 0; i < tab.length; i++){
+    if(name_find == tab[i]?.nom){
+        console.log(tab[i]);
+    }
+    
+}
+console.log("aucun candidat a ce nom ");
+
+return(tab)
+}
+function supresion_des_informations(tab , x){
+    let name_find = p("saisissez-vous le nom du candidat a changer: ")
+for(let i = 0; i < tab.length; i++){
+    if(name_find == tab[i]?.nom){
+        console.log(tab[i]);
+    }
+    
+}}
+do {
+    
+    console.log("");
+    console.log("==== options =======================");
+    console.log("");
+    console.log("1. Ajouter un nouveau candidat ");
+    console.log("2. Ajouter plusieurs candidats à la fois");
+    console.log("3. Afficher la liste des candidats");
+    console.log("4. Voter pour un candidat");
+    console.log("5. Modifier les informations d'un candida");
+    console.log("6. Supprimer un candidat");
+    console.log("7. Rechercher des candidats");
+    console.log("8. Statistiques de l'élection");
+    console.log("0. quitter")
+    console.log("====================================");
+    console.log("====================================");
+    
+
+    console.log("");
+    a = Number (p("s'il vous plait choisissait vous un option de 1 à 8 et 0 puor quitter le programme : "))
+    if (a >= 0 && a <= 8 ) {
+   
+        switch (a) {
+            case 1: {
+                Ajouter_un_nouveau_candidat(candidats)
+                p("continu ....")
+                console.clear()
+            }
+                break;
+            case 2: {
+                Ajouter_plusieurs_candidats_à_la_fois(candidats)
+                p("continu ....")
+                console.clear();
+                break;
+            }
+                
+            case 3: {
+                tri(candidats)
+                let mini_option=0
+                do{
+                console.clear()
+                console.log("==== mini menu: =============");
+                console.log("1. Trier les candidats par nombre de votes");
+                console.log("2. Filtrer et afficher uniquement les candidats d'un parti politique");
+                console.log("=============================");
+                console.log("");
+                mini_option = Number (p("s'il vous plait choisissait vous un option entre 1 et 2 : "))
+                
+                switch (mini_option) {
+                    case 1:
+                        {console.log(candidats);
+                        p("continu ....")
+                    console.clear()
+                        break;}
+                    case 2:
+                   { let partie = p("s'il vous plait choisissait vous un partie politique : ")
+                        political (candidats , partie )
+                        p("continu ....")
+                    console.clear()
+                        break;}
+
+                }
+                }while(mini_option!=1||mini_option!=2)
+                p("continu ....")
+                console.clear()
+                break;
+            }
+            case 4: {
+                let cnt
+                console.log("");
+                let cin_per= p("entrer vous votre CIN: ");
+                console.log("");               
+                if(Voter_pour_un_candidat__verification(cin_per , candidats)){
+                let cin_con= p("entrer vous le CIN de votre candidat favorable : ");
+                for (let i = 0; i< candidats.length;i++){
+                    if(cin_con == candidats[i]?.cin){
+                     candidats[i].electeurs.push(cin_per)
+                    }
+                    else if (cin_con != candidats[i]?.cin){
+                     cnt=true
+                    }
+                }
+                if(cnt){console.log("entrez-vous un valable candidat");}
+                }
+                p("continu ....")
+                console.clear()
+                break;}
+            case 5: {
+                Modifier_les_informations(candidats)
+                p("continu ....")
+                console.clear()    
+                break;}
+            case 6: {
+                supresion_des_informations(candidats , elementasup)
+                p("continu ....")
+                console.clear()    
+                break;}console
+            case 7: {
+                Rechercher_des_candidats(candidats)
+                p("continu ....")
+                console.clear()    
+                break;}
+            case 8: {
+                let mini_option=0
+                do{
+                console.clear()
+                console.log("==== mini menu: =============");
+                console.log("1. Afficher le nombre total de candidats");
+                console.log("2. Afficher le nombre total de votes exprimés dans toute l'élection");
+                console.log("3. Afficher le Top 3 des candidats ayant le plus de votes");
+                console.log("4. Afficher le nombre de candidats par parti politique");
+                console.log("=============================");
+                console.log("");
+                mini_option = Number (p("s'il vous plait choisissait vous un option entre 1 et 2 : "))
+                
+                switch (mini_option) {
+                    case 1:
+                        {console.log(candidats.length);
+                        p("continu ....")
+                    console.clear()
+                        break;}
+                    case 2:
+                   { let cnt=0
+                        for(let i = 0 ; i < candidats.length ; i++){
+                            cnt += tab[i]?.electeurs.length
+                        }
+                        console.log("cnt")
+                        p("continu ....")
+                    console.clear()
+                        break;}
+                    case 3:
+                   { tri(candidats)
+                    for(let i=0 ; i<3 ; i++){
+                    console.log(candidats[i]);
+                    p("continu ....")
+                    console.clear()
+                        break;
+                    }
+                }
+                    case 4:
+                   { let partie = p("s'il vous plait choisissait vous un partie politique : ")
+                        political (candidats , partie )
+                        p("continu ....")
+                    console.clear()
+                        break;}
+
+                }
+                }while(mini_option!=1||mini_option!=2||mini_option!=3||mini_option!=4)
+                p("continu ....")
+                console.clear()
+                break;
+        }}
+    }
+    else {
+        a = p("s'il vous plait choisissait vous un option valid : ")
+    }
+} while (a != 0)
+ 

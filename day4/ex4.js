@@ -15,4 +15,5 @@ function thelargestnbr(t){
     }
     return(console.log(max))
 }
+
 thelargestnbr(table)
