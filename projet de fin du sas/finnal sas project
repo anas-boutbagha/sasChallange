@@ -179,14 +179,14 @@ function Afficher_le_nombre_de_candidats_par_parti_politique(tab , x){
     let cnt = 0
     let tablo = []
 for(let i = 0; i < tab.length; i++){
-    if(tab[i]?.partiPolitique == tab[i]?.partiPolitique){
+    if(tab[i]?.partiPolitique == tab[i+1]?.partiPolitique){
         cnt++
 
     }
-    else if(tab[i]?.partiPolitique == tab[i]?.partiPolitique){
+    else if(tab[i]?.partiPolitique == tab[i+1]?.partiPolitique){
         tablo.push({amount_of_candidats :cnt},{partiPolitique: tab[i]?.partiPolitique})
     }
-    
+    return(console.log(tablo))
 }}
 
 do {
