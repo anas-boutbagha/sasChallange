@@ -176,18 +176,15 @@ for(let i = 0; i < tab.length; i++){
     
 }}
 function Afficher_le_nombre_de_candidats_par_parti_politique(tab , x){
-    let cnt = 0
     let tablo = []
 for(let i = 0; i < tab.length; i++){
-    if(tab[i]?.partiPolitique == tab[i+1]?.partiPolitique){
-        cnt++
-
+    if(tab[i]?.partiPolitique == x){
+    tablo.push(tab[i])
     }
-    else if(tab[i]?.partiPolitique == tab[i+1]?.partiPolitique){
-        tablo.push({amount_of_candidats :cnt},{partiPolitique: tab[i]?.partiPolitique})
     }
-    return(console.log(tablo))
-}}
+    let t = tablo.length
+    console.log(x,t)
+}
 
 do {
     
@@ -303,7 +300,7 @@ do {
                 console.log("4. Afficher le nombre de candidats par parti politique");
                 console.log("=============================");
                 console.log("");
-                mini_option = Number (p("s'il vous plait choisissait vous un option entre 1 et 2 : "))
+                mini_option = Number (p("s'il vous plait choisissait vous un option entre 1, 2, 3, 4 : "))
                 
                 switch (mini_option) {
                     case 1:
@@ -331,9 +328,8 @@ do {
                 }
                     case 4:
                     tri_celon_char (candidats )
-                    console.log(candidats)
                    let partie = p("s'il vous plait choisissait vous un partie politique : ")
-                        Afficher_le_nombre_de_candidats_par_parti_politique(candidats , partie)
+                    Afficher_le_nombre_de_candidats_par_parti_politique(candidats , partie)
                         p("continu ....")
                     console.clear()
                         break;
